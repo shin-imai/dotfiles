@@ -1,0 +1,12 @@
+*
+!.gitignore
+!.bash_profile
+!.vim
+!.vim/vimrc
+!.vim/ftplugin
+!.vim/ftplugin/*.vim
+!.bash_aliases
+!.bash_func
+!.kuberc
+!.promptrc
+!.install_tools

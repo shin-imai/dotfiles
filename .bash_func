@@ -1,0 +1,38 @@
+update_repo(){
+	msg="Updated"
+	if [ $# -gt 0 ];then
+		msg=$1
+	fi
+
+	git add -A :/ && git commit -m "$msg" && git push -u origin $(git rev-parse --abbrev-ref HEAD)
+}
+
+kyaml() {
+	kubectl -o yaml "$@" \
+		| yq d - 'items[*].metadata.managedFields' \
+		| yq d - 'metadata.managedFields' \
+		| yq d - 'items[*].metadata.ownerReferences' \
+		| yq d - 'metadata.ownerReferences' \
+		| yq d - 'items[*].status' \
+		| yq d - 'status'
+}
+
+ky(){
+	kyaml $@
+}
+
+kjson() {
+	kubectl -o json "$@" \
+		| jq 'del(.items[]?.metadata.managedFields)' \
+		| jq 'del(.metadata.managedFields)' \
+		| jq 'del(.items[]?.metadata.ownerReferences)' \
+		| jq 'del(.metadata.ownerReferences)' \
+		| jq 'del(.items[]?.status)' \
+		| jq 'del(.status)'
+}
+
+kj(){
+	kjson $@
+}
+
+

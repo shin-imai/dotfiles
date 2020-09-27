@@ -1,0 +1,27 @@
+### Kubernetes Client Setup ###
+if which kubectl &> /dev/null;then
+	alias k=kubectl
+	. <(kubectl completion bash)
+	if [[ $(type -t compopt) = "builtin" ]]; then
+		complete -o default -F __start_kubectl k kyaml ky kjson kj
+	else
+		complete -o default -o nospace -F __start_kubectl k kyaml ky kjson kj
+	fi
+fi
+
+KUBECONFIG=
+if [ -d ~/.kube ];then
+	for i in $(ls ~/.kube/config*);do
+		KUBECONFIG=$i:$KUBECONFIG
+	done
+fi
+export KUBECONFIG
+
+### kube-ps1 ###
+if [ -f ~/.kube-ps1.sh ];then
+	export KUBE_PS1_PREFIX="["
+	export KUBE_PS1_SUFFIX="]"
+	export KUBE_PS1_SYMBOL_USE_IMG=true
+	. ~/.kube-ps1.sh
+fi
+
