@@ -10,3 +10,4 @@
 !.kuberc
 !.promptrc
 !.install_tools
+!.tmux.conf.local
