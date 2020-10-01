@@ -8,6 +8,6 @@
 !.bash_aliases
 !.bash_func
 !.kuberc
-!.promptrc
 !.install_tools
 !.tmux.conf.local
+!.bash_prompt
