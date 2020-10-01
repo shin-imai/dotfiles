@@ -1,0 +1,67 @@
+prompt_init()
+{
+	ESC_OPEN=$'\001'
+	ESC_CLOSE=$'\002'
+	BOLD=$'\033[1m'
+	RED=$'\033[1;31m'
+	GREEN=$'\e[32;1m'
+	BLUE=$'\e[1;34m'
+	#YELLOW=$'\e[1;33m'
+	YELLOW=$'\e[38;5;11m'
+	CYAN=$'\e[1;36m'
+	BROWN=$'\e[0;33m'
+	PURPLE=$'\e[1;35m'
+	ORANGE=$'\e[38;5;214m'
+	PINK=$'\e[38;5;219m'
+	MAGENTA=$'\e[95m'
+	OFF=$'\033[m'
+	WRAP_OFF=$'\e[?7l'
+	WRAP_ON=$'\e[?7h'
+
+	prompt_colour=${CYAN}
+	#DASHES="$(printf '\u2500%0.s' {1..300})"
+	DASHES="$(printf '─%0.s' {1..300})"
+}
+
+branchList(){
+	git_colour=$1
+	echo -n ${OFF}
+	#for i in $(git branch|sed 's!\* \(.*\)!'"${git_colour}"'\1'"${OFF}"'!');do echo -n "$i ";done
+	#for i in $(git branch|awk '$1=="*" {print "'${git_colour}'"$2"'${OFF}'";next}{print $1}');do echo -n "$i ";done
+	git branch|awk '$1=="*" {printf "'${git_colour}'%s'${OFF}' ",$2;next};{printf "%s ",$1}'
+	echo -e "\b"
+}
+
+set_prompt(){
+	 local git_top_dir=$(git rev-parse --show-toplevel 2>/dev/null)
+	 GITPS1=""
+	 if [[ ! -z $git_top_dir ]] ; then
+		if git status -s|grep -sqP '^A ';then
+			local git_colour=$CYAN
+		elif git status -s|grep -sqP '.*';then
+			local git_colour=$RED
+		elif git status | grep -sqE "Your branch is (ahead|behind)";then
+			local git_colour=$YELLOW
+		else
+			local git_colour=$GREEN
+		fi
+
+		 branch=$(branchList ${git_colour})
+		 GITPS1="${BOLD}${PURPLE}[$branch${PURPLE}]${OFF}${prompt_colour}"
+	 fi
+
+}
+
+git_ps1(){
+	echo ${GITPS1}
+}
+
+prompt_init
+PROMPT_COMMAND="set_prompt;${PROMPT_COMMAND:-:}"
+PS1="${prompt_colour}┌─${WRAP_OFF}${ORANGE}[\w/]${OFF}${prompt_colour}──${BOLD}${OFF}"'$(kube_ps1)'"${OFF}${prompt_colour}──"'$(git_ps1)'"${DASHES}${WRAP_ON}${OFF}\n"
+
+bind 'set show-mode-in-prompt on'
+#bind 'set vi-cmd-mode-string "\1\e[1;34m\2└─[\1\e[38;5;219m\2CMD\1\e[1;34m\2]─╼ \1\e[0m\2"'
+#bind 'set vi-ins-mode-string "\1\e[1;34m\2└─[\1\e[38;5;219m\2INS\1\e[1;34m\2]─╼ \1\e[0m\2"'
+bind "set vi-cmd-mode-string ${ESC_OPEN}${prompt_colour}${ESC_CLOSE}└─[${ESC_OPEN}${MAGENTA}${ESC_CLOSE}CMD${ESC_OPEN}${prompt_colour}${ESC_CLOSE}]─╼ ${ESC_OPEN}${OFF}${ESC_CLOSE}"
+bind "set vi-ins-mode-string ${ESC_OPEN}${prompt_colour}${ESC_CLOSE}└─[${ESC_OPEN}${MAGENTA}${ESC_CLOSE}INS${ESC_OPEN}${prompt_colour}${ESC_CLOSE}]─╼ ${ESC_OPEN}${OFF}${ESC_CLOSE}"
