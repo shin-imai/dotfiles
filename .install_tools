@@ -81,16 +81,24 @@ if ! which jq &>/dev/null;then
 	install_jq
 fi
 
+### gitmux install
 if ! which gitmux &>/dev/null;then
 	install_gitmux
 fi
 
+### tmuxbar install
 if [ ! -d .tmux ] && which git &>/dev/null;then
 	install_tmuxbar
 fi
 
+### kube-ps1 install
 if [ ! -f ~/.kube-ps1.sh ];then
 	curl https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh >\
 		~/.kube-ps1.sh
+fi
+
+### vi scheme ###
+if [ ! -d ~/.vim/pack/default/start/gruvbox ];then
+	git clone https://github.com/morhetz/gruvbox.git ~/.vim/pack/default/start/gruvbox
 fi
 

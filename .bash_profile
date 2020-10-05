@@ -18,13 +18,8 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 . ~/.bash_func
 . ~/.kuberc
 
-### vi scheme ###
-if [ ! -d ~/.vim/pack/default/start/gruvbox ];then
-	git clone https://github.com/morhetz/gruvbox.git ~/.vim/pack/default/start/gruvbox
-fi
-
 ### git setup ###
-if which git &>/dev/null && ! grep -q vimdiff .gitconfig;then
+if which git &>/dev/null && ! grep -q vimdiff ~/.gitconfig;then
 	git config --global difftool.prompt false
 	git config --global diff.tool vimdiff
 	git config --global merge.tool vimdiff
