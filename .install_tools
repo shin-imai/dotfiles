@@ -102,3 +102,16 @@ if [ ! -d ~/.vim/pack/default/start/gruvbox ];then
 	git clone https://github.com/morhetz/gruvbox.git ~/.vim/pack/default/start/gruvbox
 fi
 
+### krew & ctx/ns ###
+if [ ! -f ~/.krew/bin/kubectl-krew ];then
+(
+  set -x; cd "$(mktemp -d)" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.tar.gz" &&
+  tar zxvf krew.tar.gz &&
+  KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_$(uname -m | sed -e 's/x86_64/amd64/' -e 's/arm.*$/arm/')" &&
+  "$KREW" install krew
+  ~/.krew/bin/kubectl-krew install ctx ns
+)
+fi
+
+

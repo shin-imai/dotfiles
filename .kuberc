@@ -25,3 +25,5 @@ if [ -f ~/.kube-ps1.sh ];then
 	. ~/.kube-ps1.sh
 fi
 
+### krew ###
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
