@@ -313,7 +313,7 @@ bind-key -n F5 select-window -t :5
 bind-key -n F6 select-window -t :6
 
 # Synchronize Panes
-bind C-c set-window-option synchronize-panes
+#bind C-c set-window-option synchronize-panes
 bind C-n set-window-option synchronize-panes
 
 # Gitbar

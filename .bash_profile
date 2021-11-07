@@ -25,4 +25,5 @@ if which git &>/dev/null && ! grep -q vimdiff ~/.gitconfig;then
 	git config --global merge.tool vimdiff
 fi
 
-
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/golib
