@@ -113,6 +113,9 @@ if has("autocmd")
   \ endif
 endif
 
+" Syntax for Jenkins
+autocmd BufNewFile,BufRead Jenkinsfile set syntax=groovy
+
 " iTerm2 + tmux
 " https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes 
 let &t_SI = "\<Esc>[6 q"
