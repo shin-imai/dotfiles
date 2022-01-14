@@ -12,6 +12,7 @@ set number relativenumber
 set bs=2        " allow backspacing over everything in insert mode
 set ic
 set scs
+set et
 set wildmenu
 set wildmode=longest,list,full
 autocmd VimEnter * set formatoptions-=cro
