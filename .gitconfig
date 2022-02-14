@@ -1,0 +1,23 @@
+[user]
+  name = Shin Imai
+  email = shin.imai@sedex.com
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[difftool]
+  prompt = false
+[alias]
+  d = difftool
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  root = !pwd
+[merge]
+  tool = vimdiff
+#[pull]
+#	rebase = true
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto

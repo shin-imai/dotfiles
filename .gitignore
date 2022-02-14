@@ -11,3 +11,4 @@
 !.install_tools
 !.tmux.conf.local
 !.bash_prompt
+!.gitconfig
