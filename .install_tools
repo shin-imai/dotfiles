@@ -11,10 +11,7 @@ update-locale
 
 
 ### Local bin ###
-if [ -z $LOCALBIN ];then
-	echo "LOCALBIN isn't set"
-	exit 127
-fi
+LOCALBIN=~/.local/bin
 
 if [ ! -d $LOCALBIN ];then
 	mkdir $LOCALBIN
