@@ -14,7 +14,7 @@ update-locale
 LOCALBIN=~/.local/bin
 
 if [ ! -d $LOCALBIN ];then
-	mkdir $LOCALBIN
+	mkdir -p $LOCALBIN
 fi
 
 
