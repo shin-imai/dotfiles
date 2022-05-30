@@ -24,7 +24,7 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 . ~/.kuberc
 
 ### git setup ###
-if which git &>/dev/null && ! grep -q vimdiff ~/.gitconfig;then
+if which git &>/dev/null && ! grep -q vimdiff ~/.gitconfig &>/dev/null;then
 	git config --global difftool.prompt false
 	git config --global diff.tool vimdiff
 	git config --global merge.tool vimdiff
