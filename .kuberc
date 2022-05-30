@@ -18,11 +18,11 @@ fi
 export KUBECONFIG
 
 ### kube-ps1 ###
-if [ -f ~/.kube-ps1.sh ];then
+if [ -f ~/.local/bin/kube-ps1.sh ];then
 	export KUBE_PS1_PREFIX="["
 	export KUBE_PS1_SUFFIX="]"
 	export KUBE_PS1_SYMBOL_USE_IMG=true
-	. ~/.kube-ps1.sh
+	. ~/.local/bin/kube-ps1.sh
 fi
 
 ### krew ###

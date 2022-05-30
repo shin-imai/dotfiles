@@ -1,11 +1,25 @@
 #!/bin/bash
 
-OS=$muname | tr '[:upper:]' '[:lower:]')
+OS=$(uname | tr '[:upper:]' '[:lower:]')
 
+### Locale ###
+export LANG="en_GB.UTF-8"
+export LANGUAGE="en_GB:en"
+export LC_ALL=en_GB.UTF-8
+update-locale
+
+
+
+### Local bin ###
 if [ -z $LOCALBIN ];then
 	echo "LOCALBIN isn't set"
 	exit 127
 fi
+
+if [ ! -d $LOCALBIN ];then
+	mkdir $LOCALBIN
+fi
+
 
 if ! which curl &>/dev/null;then
 	echo "curl isn't installed"
@@ -27,7 +41,7 @@ install_kubectl(){
 install_yq(){
 	local URL
 	URL=$(curl -Lfsq https://api.github.com/repos/mikefarah/yq/releases/latest |
-		awk '$1~/download_url/ && $2~/yq_'${OS}'_amd64/ {print $2}'|tr -d '"')
+		awk '$1~/download_url/ && $2~/yq_'${OS}'_amd64.tar.gz/ {print $2}'|tr -d '"')
 	curl -o $LOCALBIN/yq -Lsqf $URL && chmod +x $LOCALBIN/yq || echo "Downloadin yq failed"
 }
 
@@ -64,11 +78,6 @@ if which git &>/dev/null && ! grep -q vimdiff .gitconfig;then
 	git config --global merge.tool vimdiff
 fi
 
-### Local bin ###
-if [ ! -d $LOCALBIN ];then
-	mkdir $LOCALBIN
-fi
-
 if ! which kubectl &>/dev/null;then
 	install_kubectl
 fi
@@ -92,9 +101,9 @@ if [ ! -d .tmux ] && which git &>/dev/null;then
 fi
 
 ### kube-ps1 install
-if [ ! -f ~/.kube-ps1.sh ];then
+if [ ! -f ~/.local/bin/kube-ps1.sh ];then
 	curl https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh >\
-		~/.kube-ps1.sh
+		~/.local/bin/kube-ps1.sh
 fi
 
 ### vi scheme ###
@@ -106,11 +115,12 @@ fi
 if [ ! -f ~/.krew/bin/kubectl-krew ];then
 (
   set -x; cd "$(mktemp -d)" &&
-  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.tar.gz" &&
-  tar zxvf krew.tar.gz &&
-  KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_$(uname -m | sed -e 's/x86_64/amd64/' -e 's/arm.*$/arm/')" &&
-  "$KREW" install krew
-  ~/.krew/bin/kubectl-krew install ctx ns
+  OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+  ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+  KREW="krew-${OS}_${ARCH}" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
+  tar zxvf "${KREW}.tar.gz" &&
+  ./"${KREW}" install krew
 )
 fi
 
