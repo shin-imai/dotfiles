@@ -63,13 +63,6 @@ install_tmuxbar(){
 	cp .tmux/.tmux.conf.local .
 }
 
-### git setup ###
-if which git &>/dev/null && ! grep -q vimdiff .gitconfig;then
-	git config --global difftool.prompt false
-	git config --global diff.tool vimdiff
-	git config --global merge.tool vimdiff
-fi
-
 if ! which kubectl &>/dev/null;then
 	install_kubectl
 fi
