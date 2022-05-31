@@ -13,3 +13,4 @@
 !.bash_prompt
 !.gitconfig
 !Dockerfile
+!run_ide.sh
