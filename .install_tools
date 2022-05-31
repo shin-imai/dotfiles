@@ -3,9 +3,9 @@
 OS=$(uname | tr '[:upper:]' '[:lower:]')
 
 ### Locale ###
-export LANG="en_GB.UTF-8"
-export LANGUAGE="en_GB:en"
-export LC_ALL=en_GB.UTF-8
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US:en"
+export LC_ALL=en_US.UTF-8
 update-locale
 
 
@@ -63,11 +63,6 @@ install_tmuxbar(){
 	cp .tmux/.tmux.conf.local .
 }
 
-### vi scheme ###
-if [ ! -d ~/.vim/pack/default/start/gruvbox ];then
-	git clone https://github.com/morhetz/gruvbox.git ~/.vim/pack/default/start/gruvbox
-fi
-
 ### git setup ###
 if which git &>/dev/null && ! grep -q vimdiff .gitconfig;then
 	git config --global difftool.prompt false
@@ -101,11 +96,6 @@ fi
 if [ ! -f ~/.local/bin/kube-ps1.sh ];then
 	curl https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh >\
 		~/.local/bin/kube-ps1.sh
-fi
-
-### vi scheme ###
-if [ ! -d ~/.vim/pack/default/start/gruvbox ];then
-	git clone https://github.com/morhetz/gruvbox.git ~/.vim/pack/default/start/gruvbox
 fi
 
 ### krew & ctx/ns ###
