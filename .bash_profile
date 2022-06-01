@@ -8,6 +8,7 @@ export LOCALBIN=~/.local/bin
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US:en"
 export LC_ALL=en_US.UTF-8
+export EDITOR=nvim
 
 if [ -d $LOCALBIN ];then
 	PATH=$PATH:$LOCALBIN
