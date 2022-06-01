@@ -2,14 +2,6 @@
 
 OS=$(uname | tr '[:upper:]' '[:lower:]')
 
-### Locale ###
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US:en"
-export LC_ALL=en_US.UTF-8
-update-locale
-
-
-
 ### Local bin ###
 LOCALBIN=~/.local/bin
 
@@ -18,12 +10,12 @@ if [ ! -d $LOCALBIN ];then
 fi
 
 
-if ! which curl &>/dev/null;then
+if ! command -v curl &>/dev/null;then
 	echo "curl isn't installed"
 	exit 127
 fi
 
-if ! which git &>/dev/null;then
+if ! command -v git &>/dev/null;then
 	echo "git isn't installed"
 	exit 127
 fi
@@ -38,7 +30,7 @@ install_kubectl(){
 install_yq(){
 	local URL
 	URL=$(curl -Lfsq https://api.github.com/repos/mikefarah/yq/releases/latest |
-		awk '$1~/download_url/ && $2~/yq_'${OS}'_amd64.tar.gz/ {print $2}'|tr -d '"')
+		awk '$1~/download_url/ && $2~/yq_'${OS}'_amd64"$/ {print $2}'|tr -d '"')
 	curl -o $LOCALBIN/yq -Lsqf $URL && chmod +x $LOCALBIN/yq || echo "Downloadin yq failed"
 }
 
@@ -61,27 +53,28 @@ install_tmuxbar(){
 	git clone https://github.com/gpakosz/.tmux.git
 	ln -s -f .tmux/.tmux.conf
 	cp .tmux/.tmux.conf.local .
+  cd -
 }
 
-if ! which kubectl &>/dev/null;then
+if ! command -v kubectl &>/dev/null;then
 	install_kubectl
 fi
 
-if ! which yq &>/dev/null;then
+if ! command -v yq &>/dev/null;then
 	install_yq
 fi
 
-if ! which jq &>/dev/null;then
+if ! command -v jq &>/dev/null;then
 	install_jq
 fi
 
 ### gitmux install
-if ! which gitmux &>/dev/null;then
+if ! command -v gitmux &>/dev/null;then
 	install_gitmux
 fi
 
 ### tmuxbar install
-if [ ! -d .tmux ] && which git &>/dev/null;then
+if [ ! -d ~/.tmux ] && command -v git &>/dev/null;then
 	install_tmuxbar
 fi
 
@@ -101,6 +94,7 @@ if [ ! -f ~/.krew/bin/kubectl-krew ];then
   curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
   tar zxvf "${KREW}.tar.gz" &&
   ./"${KREW}" install krew
+  kubectl krew install ctx ns
 )
 fi
 

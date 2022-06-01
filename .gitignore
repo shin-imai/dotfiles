@@ -8,9 +8,9 @@
 !.bash_aliases
 !.bash_func
 !.kuberc
-!.install_tools
 !.tmux.conf.local
 !.bash_prompt
 !.gitconfig
-!Dockerfile
+!Dockerfile_ide
 !run_ide.sh
+!install_*
