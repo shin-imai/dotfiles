@@ -23,6 +23,6 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 . ~/.bash_func
 . ~/.kuberc
 
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=~/golib
+git config --global pull.rebase true
+git config --global core.editor "nvim"
 clear
