@@ -1,3 +1,9 @@
 #!/bin/bash
 
-docker run -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/root/workspace --name ide -dit ide:go
+docker run -dit --init --name terminal \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /Users/shinimai/Documents/workspace:/root/workspace \
+  -v ~/.ssh:/root/.ssh \
+  -v ~/.kube/config:/root/.kube/config \
+  -v ~/.aws:/root/.aws \
+  -v ~/.config/gcloud:/root/.config/gcloud ide:go

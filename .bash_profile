@@ -1,6 +1,6 @@
 ### General ###
 set -o vi
-export EDITOR=vi
+export EDITOR=nvim
 export TERM=xterm-256color
 export LOCALBIN=~/.local/bin
 
@@ -8,7 +8,6 @@ export LOCALBIN=~/.local/bin
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US:en"
 export LC_ALL=en_US.UTF-8
-export EDITOR=nvim
 
 if [ -d $LOCALBIN ];then
 	PATH=$PATH:$LOCALBIN
@@ -19,6 +18,7 @@ shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 ### Include others ###
+. ~/.bashrc
 . ~/.bash_aliases
 . ~/.bash_prompt
 . ~/.bash_func
