@@ -7,4 +7,4 @@ docker run -dit --init --name terminal2 \
   -v ~/.ssh:/root/.ssh \
   -v ~/.kube/config:/root/.kube/config \
   -v ~/.aws:/root/.aws \
-  -v ~/.config/gcloud:/root/.config/gcloud ide:go
+  -v ~/.config/gcloud:/root/.config/gcloud terminal

@@ -94,6 +94,7 @@ if [ ! -f ~/.krew/bin/kubectl-krew ];then
   curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
   tar zxvf "${KREW}.tar.gz" &&
   ./"${KREW}" install krew
+  ~/.krew/bin/kubectl-krew install ctx ns
 )
 fi
 
