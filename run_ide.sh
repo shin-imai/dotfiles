@@ -1,6 +1,7 @@
 #!/bin/bash
 
 docker run -dit --init --name terminal \
+  --network kind \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v /Users/shinimai/Documents/workspace:/root/workspace \
   -v ~/.ssh:/root/.ssh \
