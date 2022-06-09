@@ -1,4 +1,5 @@
 FROM mashmb/nvim-go:dev
+ENV TZ=Europe/London
 RUN apt-get update && \
 	apt-get install -y bash-completion tmux openssh-client locales
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
