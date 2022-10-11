@@ -36,10 +36,10 @@ set_prompt(){
 	 local git_top_dir=$(git rev-parse --show-toplevel 2>/dev/null)
 	 GITPS1=""
 	 if [[ ! -z $git_top_dir ]] ; then
-		#if git status -s|grep -sqP '^A ';then
+		#if git status -s|grep -sqE '^A ';then
 		#	local git_colour=$CYAN
-		#elif git status -s|grep -sqP '.*';then
-		if git status -s|grep -sqP '.*';then
+		#elif git status -s|grep -sqE '.*';then
+		if git status -s|grep -sqE '.*';then
 			local git_colour=$RED
 		elif git status | grep -sqE "Your branch is (ahead|behind)";then
 			local git_colour=$YELLOW

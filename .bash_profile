@@ -26,4 +26,6 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 git config --global pull.rebase true
 git config --global core.editor "nvim"
+git config --global diff.tool vimdiff
+git config --global merge.tool vimdiff
 clear
