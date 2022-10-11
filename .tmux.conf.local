@@ -188,7 +188,8 @@ tmux_conf_theme_status_left_attr='bold,none,none'
 
 # status right style
 tmux_conf_theme_status_right_fg='#8a8a8a,#e4e4e4,#000000' # light gray, white, black
-tmux_conf_theme_status_right_bg='#080808,#d70000,#e4e4e4' # dark gray, red, white
+#tmux_conf_theme_status_right_bg='#080808,#d70000,#e4e4e4' # dark gray, red, white
+tmux_conf_theme_status_right_bg='#080808' # dark gray, red, white
 tmux_conf_theme_status_right_attr='none,none,bold'
 
 # pairing indicator
@@ -322,4 +323,5 @@ bind C-n set-window-option synchronize-panes
 #tmux_conf_theme_status_left_bg='#8a8a8a,#ff00af,#00afff'  # yellow, pink, white blue
 tmux_conf_theme_status_left=' 🍺 #S '
 #tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #{username}#{root} | #{hostname} | #(/bin/bash $HOME/.tmux-kube/kube.tmux 250 red cyan) | #(gitmux "#{pane_current_path}")' 
-tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #{username}#{root} | #{hostname} | #($HOME/.local/bin/gitmux "#{pane_current_path}")' 
+#tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #{username} | #{root} | #($HOME/.local/bin/gitmux "#{pane_current_path}")' 
+tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #($HOME/.local/bin/gitmux "#{pane_current_path}")' 
