@@ -1,4 +1,3 @@
-#!/bin/bash
-
+#!/bin/zsh
 
 brew install git-flow-avh
