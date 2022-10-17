@@ -15,4 +15,4 @@
 !run_ide.sh
 !install_*
 !mac
-!mac/0_homebrew.sh
+!mac/*.sh
