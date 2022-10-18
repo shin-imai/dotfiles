@@ -3,6 +3,11 @@
 # Install tools via brew
 brew instal kubectl tmux git-flow-avh nodejs lazygit neovim podman helm helmfile
 
+# Install helm plugins
+helm plugin install https://github.com/databus23/helm-diff
+helm plugin install https://github.com/jkroepke/helm-secrets
+
+
 # Install Krew and plugins
 (
   set -x; cd "$(mktemp -d)" &&
