@@ -6,7 +6,7 @@ alias vi=nvim
 alias lg=lazygit
 alias gf="git flow"
 bindkey "^R" history-incremental-search-backward
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin:$PATH"
 export EDITOR=nvim
 export KIND_EXPERIMENTAL_PROVIDER=podman
 EOF
