@@ -17,6 +17,7 @@ git clone https://github.com/MashMB/nvim-ide.git && \
 	rm -rf nvim-ide
 
 sed -i "" 's#/root#~#' ~/.config/nvim/init.vim
+sed -i "" '16,25s#.*#"&#' ~/.config/nvim/coc/coc.vim
 
 # Install plugins
 nvim --headless +PlugInstall +qall 2>/dev/null
