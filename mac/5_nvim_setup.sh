@@ -6,10 +6,6 @@
 pip3 install pynvim
 npm i -g neovim
 
-# Install British spelling
-mkdir -p ~/.local/share/nvim/site/spell
-curl -fLo ~/.local/share/nvim/site/spell/uk.utf-8.spl 'https://raw.githubusercontent.com/MashMB/nvim-ide/master/nvim/spell/uk.utf-8.spl'
-
 # Install vim plugin manager
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
