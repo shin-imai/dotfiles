@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-
 git config --global user.name "Shin Imai"
 git config --global user.email "binaryninja0101@yahoo.com"
 git config --global difftool.vscode.cmd "code --wait --diff \$LOCAL \$REMOTE"
