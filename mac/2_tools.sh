@@ -1,7 +1,10 @@
 #!/bin/zsh
 
 # Install tools via brew
-brew instal kubectl tmux git-flow-avh nodejs lazygit neovim podman helm helmfile
+brew instal kubectl tmux git-flow-avh go nodejs lazygit jq yq neovim podman kind helm helmfile
+
+# install stuff via cask
+brew install --cask iterm2 visual-studio-code slack
 
 # Install helm plugins
 helm plugin install https://github.com/databus23/helm-diff

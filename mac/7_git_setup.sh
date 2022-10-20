@@ -10,6 +10,7 @@ git config --global core.editor nvim
 git config --global alias.d "difftool -t vimdiff"
 git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit"
 git config --global alias.lola "log --graph --decorate --pretty=oneline --abbrev-commit --all"
+git config --global alias.base "merge-base HEAD origin/master"
 git config --global alias.root "\!pwd"
 git config --global color.branch auto
 git config --global color.diff auto

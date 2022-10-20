@@ -10,9 +10,12 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin:$PATH"
 export EDITOR=nvim
 export KIND_EXPERIMENTAL_PROVIDER=podman
 EOF
-echo 'source ~/.zshrc_custom' >> ~/.zshrc
+if ! grep -q .zshrc_custom ~/.zshrc ;then
+  echo 'source ~/.zshrc_custom' >> ~/.zshrc
+fi
 
 # Set up tmuxbar
+if ! grep -q '^#   ___  _ __(_) __ _(_)_ __   __ _| |' ~/.tmux.conf.local;then
 cat <<'EOF' >> ~/.tmux.conf.local
 #             _       _             _
 #   ___  _ __(_) __ _(_)_ __   __ _| |
@@ -57,3 +60,4 @@ tmux_conf_theme_status_left=' 🍺 #S '
 #tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #{username} | #{root} | #($HOME/.local/bin/gitmux "#{pane_current_path}")'
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #($HOME/.local/bin/gitmux "#{pane_current_path}")'
 EOF
+fi

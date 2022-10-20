@@ -11,7 +11,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 
 # Configure nvim
 mkdir -p ~/.config/nvim
-git clone https://github.com/MashMB/nvim-ide.git && \
+git clone https://github.com/imaimaibah/nvim-ide.git && \
 	tar c -C  nvim-ide/nvim/config ./ | tar x -C ~/.config/nvim/ && \
 	tar c -C nvim-ide/nvim-go/config ./ | tar x -C ~/.config/nvim/ && \
 	rm -rf nvim-ide
