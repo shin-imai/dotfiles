@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Install tools via brew
-brew instal kubectl tmux git-flow-avh go nodejs lazygit jq yq neovim podman kind helm helmfile
+brew instal kubectl tmux git-flow-avh go nodejs lazygit fzf ripgrep jq yq neovim podman kind helm helmfile
 
 # install stuff via cask
 brew install --cask iterm2 visual-studio-code slack
