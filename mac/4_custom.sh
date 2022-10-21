@@ -8,7 +8,6 @@ alias gf="git flow"
 bindkey "^R" history-incremental-search-backward
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin:$PATH"
 export EDITOR=nvim
-export KIND_EXPERIMENTAL_PROVIDER=podman
 EOF
 if ! grep -q .zshrc_custom ~/.zshrc ;then
   echo 'source ~/.zshrc_custom' >> ~/.zshrc
@@ -61,3 +60,13 @@ tmux_conf_theme_status_left=' 🍺 #S '
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #($HOME/.local/bin/gitmux "#{pane_current_path}")'
 EOF
 fi
+
+cat <<EOF > ~/.local/bin/docker
+#!/bin/sh
+set -eu
+: "${LIMA_INSTANCE:=docker}"
+
+export LIMA_INSTANCE
+exec lima docker "$@"
+EOF
+chmod +x ~/.local/bin/docker
