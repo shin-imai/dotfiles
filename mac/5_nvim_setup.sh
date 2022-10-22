@@ -28,3 +28,8 @@ go install golang.org/x/tools/gopls@latest
 COC='coc-css coc-eslint coc-html coc-json coc-sh coc-sql coc-tsserver coc-yaml coc-go'
 cd ~/.config/coc/extensions && npm install $(echo $COC) --global --only=prod && cd -
 cd ~/.config/nvim/plugins/vimspector && python3 install_gadget.py --enable-go && go install github.com/go-delve/delve/cmd/dlv@latest && cd -
+
+#Set NerdTreeToggle key mapping
+if ! grep -q leader ~/.config/nvim/nerdtree/nerdtree.vim
+  echo "nmap <leader><SPACE> :NERDTreeToggle<CR>" >> ~/.config/nvim/nerdtree/nerdtree.vim
+fi
