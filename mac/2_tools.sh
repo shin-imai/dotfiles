@@ -37,3 +37,6 @@ mkdir -p $LOCALBIN
 URL=$(curl -fLsq https://api.github.com/repos/arl/gitmux/releases/latest | 
   awk '$1~/download_url/ && $2~/macOS_arm64/ {print $2}' | tr -d '"')
 curl -Lsqf $URL | tar zx -C $LOCALBIN/ && chmod +x $LOCALBIN/gitmux || echo "Downloadin gitmux failed"
+
+## kube-tmux
+git clone https://github.com/jonmosco/kube-tmux.git ~/.tmux/kube-tmux

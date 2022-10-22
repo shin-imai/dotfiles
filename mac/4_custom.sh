@@ -27,7 +27,7 @@ tmux_conf_theme_window_bg='colour240'
 tmux_conf_theme_highlight_focused_pane=true
 tmux_conf_theme_focused_pane_fg='default'
 tmux_conf_theme_focused_pane_bg='#002b36'
-tmux_conf_theme_status_right_bg='#080808' # dark gray,
+tmux_conf_theme_status_right_bg='#080808,#daf894,#080808' # dark gray,
 tmux_conf_theme_left_separator_main='\uE0B0'
 tmux_conf_theme_left_separator_sub='\uE0B1'
 tmux_conf_theme_right_separator_main='\uE0B2'
@@ -57,7 +57,7 @@ bind C-n set-window-option synchronize-panes
 tmux_conf_theme_status_left=' 🍺 #S '
 #tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #{username}#{root} | #{hostname} | #(/bin/bash $HOME/.tmux-kube/kube.tmux 250 red cyan) | #(gitmux "#{pane_current_path}")'
 #tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #{username} | #{root} | #($HOME/.local/bin/gitmux "#{pane_current_path}")'
-tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #($HOME/.local/bin/gitmux "#{pane_current_path}")'
+tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #(/bin/bash $HOME/.tmux/kube-tmux/kube.tmux 250 red cyan) | #($HOME/.local/bin/gitmux "#{pane_current_path}")'
 EOF
 fi
 
