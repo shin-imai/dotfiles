@@ -39,4 +39,4 @@ URL=$(curl -fLsq https://api.github.com/repos/arl/gitmux/releases/latest |
 curl -Lsqf $URL | tar zx -C $LOCALBIN/ && chmod +x $LOCALBIN/gitmux || echo "Downloadin gitmux failed"
 
 ## kube-tmux
-git clone https://github.com/jonmosco/kube-tmux.git ~/.tmux/kube-tmux
+git clone https://github.com/imaimaibah/kube-tmux.git ~/.tmux/kube-tmux
