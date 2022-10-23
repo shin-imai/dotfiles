@@ -52,7 +52,6 @@ bind-key -n F6 select-window -t :6
 bind C-n set-window-option synchronize-panes
 
 # Gitbar
-#source-file "$HOME/.tmux-gitbar/tmux-gitbar.tmux"
 #tmux_conf_theme_status_left_bg='#8a8a8a,#ff00af,#00afff'  # yellow, pink, white blue
 tmux_conf_theme_status_left=' 🍺 #S '
 #tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #{username}#{root} | #{hostname} | #(/bin/bash $HOME/.tmux-kube/kube.tmux 250 red cyan) | #(gitmux "#{pane_current_path}")'
