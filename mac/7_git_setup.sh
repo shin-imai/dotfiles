@@ -9,6 +9,7 @@ git config --global pull.rebase true
 git config --global fetch.prune true
 git config --global core.editor nvim
 git config --global alias.d "difftool -t vimdiff"
+git congig --global alias.ls "log --decorate --patch --stat"
 git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit"
 git config --global alias.lola "log --graph --decorate --pretty=oneline --abbrev-commit --all"
 git config --global alias.base "merge-base HEAD origin/master"
