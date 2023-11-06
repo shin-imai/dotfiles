@@ -11,10 +11,12 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 
 # Configure nvim
 mkdir -p ~/.config/nvim
-git clone https://github.com/imaimaibah/nvim-ide.git && \
-	tar c -C  nvim-ide/nvim/config ./ | tar x -C ~/.config/nvim/ && \
-	tar c -C nvim-ide/nvim-go/config ./ | tar x -C ~/.config/nvim/ && \
-	rm -rf nvim-ide
+#git clone https://github.com/imaimaibah/nvim-ide.git && \
+#	 tar c -C  nvim-ide/nvim/config ./ | tar x -C ~/.config/nvim/ && \
+#	 tar c -C nvim-ide/nvim-go/config ./ | tar x -C ~/.config/nvim/ && \
+#	 rm -rf nvim-ide
+curl https://api.github.com/repos/imaimaibah/nvim-ide/tarball/master -L |
+  tar zx --strip-components=3 -C ~/.config/nvim '*/nvim/config' 
 
 sed -i "" 's#/root#~#' ~/.config/nvim/init.vim
 sed -i "" '16,25s#.*#"&#' ~/.config/nvim/coc/coc.vim
