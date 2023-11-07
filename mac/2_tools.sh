@@ -1,7 +1,8 @@
 #!/bin/zsh
 
 # Install tools via brew
-brew instal kubectl tmux git-flow-avh go nodejs lazygit fzf fd ripgrep jq yq neovim lima kind helm helmfile terraform
+# Not sure if fzf is needed. I might remove fzf from neovim, too.
+brew instal kubectl tmux git-flow-avh go nodejs glow lazygit fzf fd ripgrep jq yq neovim lima kind helm helmfile terraform
 
 # install stuff via cask
 brew install --cask iterm2 visual-studio-code slack
