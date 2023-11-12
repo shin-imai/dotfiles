@@ -11,6 +11,16 @@ brew install --cask iterm2 visual-studio-code slack
 helm plugin install https://github.com/databus23/helm-diff
 helm plugin install https://github.com/jkroepke/helm-secrets
 
+# This is usuful tool to obtain values from tfstate. https://github.com/fujiwara/tfstate-lookup
+# brew install fujiwara/tap/tfstate-lookup
+
+# File Encryption tool https://github.com/FiloSottile/age/
+# brew install age
+
+# Secret operations. https://github.com/getsops/sops
+
+# vals is a tool to get values from remote storage/secret services. https://github.com/helmfile/vals
+
 
 # Install Krew and plugins
 (
