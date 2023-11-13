@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # Referred to https://github.com/MashMB/nvim-ide
+# Also, kickstart nvim is a good place to look. https://github.com/nvim-lua/kickstart.nvim
 
 # Install nvim language supprt and tools
 pip3 install pynvim
