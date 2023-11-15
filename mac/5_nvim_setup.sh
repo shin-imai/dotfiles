@@ -2,6 +2,13 @@
 #
 # Referred to https://github.com/MashMB/nvim-ide
 # Also, kickstart nvim is a good place to look. https://github.com/nvim-lua/kickstart.nvim
+# Check out these videos or repos.
+# - https://www.youtube.com/watch?v=stqUbv-5u2s
+# - https://www.youtube.com/watch?v=NL8D8EkphUw
+# - https://github.com/LunarVim/Neovim-from-scratch
+# Also consider using pre-configured/packaged versions
+# - https://www.lunarvim.org/
+# - https://nvchad.com/
 
 # Install nvim language supprt and tools
 pip3 install pynvim
@@ -20,7 +27,8 @@ curl https://api.github.com/repos/imaimaibah/nvim-ide/tarball/master -L |
   tar zx --strip-components=3 -C ~/.config/nvim '*/nvim/config' 
 
 sed -i "" 's#/root#~#' ~/.config/nvim/init.vim
-sed -i "" '16,25s#.*#"&#' ~/.config/nvim/coc/coc.vim
+#sed -i "" '16,25s#.*#"&#' ~/.config/nvim/coc/coc.vim
+sed -i "" '16,25s#^#"#' ~/.config/nvim/coc/coc.vim
 
 # Install plugins
 nvim --headless +PlugInstall +qall 2>/dev/null

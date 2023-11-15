@@ -5,6 +5,7 @@ cat <<'EOF' > ~/.zshrc_custom
 alias vi=nvim
 alias lg=lazygit
 alias gf="git flow"
+alias ls=exa
 bindkey "^R" history-incremental-search-backward
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin:$PATH"
 export EDITOR=nvim
