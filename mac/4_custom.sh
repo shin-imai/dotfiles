@@ -40,6 +40,7 @@ tmux_conf_theme_window_status_current_format="#I #W#{?window_zoomed_flag,🔍,}"
 unbind C-b
 unbind C-c
 set -g prefix C-t
+bind C-t send-prex
 
 # Window Switch
 bind-key -n F1 select-window -t :1
