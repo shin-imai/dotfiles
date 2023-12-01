@@ -6,6 +6,7 @@
 # - https://www.youtube.com/watch?v=stqUbv-5u2s
 # - https://www.youtube.com/watch?v=NL8D8EkphUw
 # - https://github.com/LunarVim/Neovim-from-scratch
+# - https://www.youtube.com/watch?v=jrFjtwm-R94
 # Also consider using pre-configured/packaged versions
 # - https://www.lunarvim.org/
 # - https://nvchad.com/
