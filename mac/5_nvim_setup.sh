@@ -9,6 +9,7 @@
 # Also consider using pre-configured/packaged versions
 # - https://www.lunarvim.org/
 # - https://nvchad.com/
+# - https://www.lazyvim.org/
 
 # Install nvim language supprt and tools
 pip3 install pynvim
