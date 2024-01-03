@@ -23,7 +23,8 @@ cat <<'EOF' >> ~/.tmux.conf.local
 # | (_) | |  | | (_| | | | | | (_| | |
 #  \___/|_|  |_|\__, |_|_| |_|\__,_|_|
 #               |___/
-
+set -g status-position top
+set -g detach-on-destroy off
 tmux_conf_theme_window_bg='colour240'
 tmux_conf_theme_highlight_focused_pane=true
 tmux_conf_theme_focused_pane_fg='default'
@@ -54,12 +55,32 @@ bind-key -n F6 select-window -t :6
 #bind C-c set-window-option synchronize-panes
 bind C-n set-window-option synchronize-panes
 
-# Gitbar
-#tmux_conf_theme_status_left_bg='#8a8a8a,#ff00af,#00afff'  # yellow, pink, white blue
+# Gitmux
 tmux_conf_theme_status_left=' 🍺 #S '
 #tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #{username}#{root} | #{hostname} | #(/bin/bash $HOME/.tmux-kube/kube.tmux 250 red cyan) | #(gitmux "#{pane_current_path}")'
 #tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #{username} | #{root} | #($HOME/.local/bin/gitmux "#{pane_current_path}")'
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b , #(/bin/bash $HOME/.tmux/kube-tmux/kube.tmux 250 red cyan) , #($HOME/.local/bin/gitmux "#{pane_current_path}")'
+
+# Catppuccin Theme
+# set -g @plugin 'catppuccin/tmux'
+# set -g @catppuccin_window_left_separator ""
+# set -g @catppuccin_window_right_separator " "
+# set -g @catppuccin_window_middle_separator " █"
+# set -g @catppuccin_window_number_position "right"
+# set -g @catppuccin_window_default_fill "number"
+# set -g @catppuccin_window_default_text "#W"
+# set -g @catppuccin_window_current_fill "number"
+# set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
+# set -g @catppuccin_status_modules_right "directory meetings date_time"
+# set -g @catppuccin_status_modules_left "session"
+# set -g @catppuccin_status_left_separator  " "
+# set -g @catppuccin_status_right_separator " "
+# set -g @catppuccin_status_right_separator_inverse "no"
+# set -g @catppuccin_status_fill "icon"
+# set -g @catppuccin_status_connect_separator "no"
+# set -g @catppuccin_directory_text "#{b:pane_current_path}"
+# set -g @catppuccin_meetings_text "#($HOME/.config/tmux/scripts/cal.sh)"
+# set -g @catppuccin_date_time_text "%H:%M"
 EOF
 fi
 
