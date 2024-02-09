@@ -43,7 +43,7 @@ ln -s -f .tmux/.tmux.conf .tmux.conf
 cp .tmux/.tmux.conf.local .
 cd -
 
-## gitmux
+## Gitmux
 LOCALBIN=~/.local/bin
 mkdir -p $LOCALBIN
 URL=$(curl -fLsq https://api.github.com/repos/arl/gitmux/releases/latest | 
