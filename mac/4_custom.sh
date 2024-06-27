@@ -83,13 +83,3 @@ tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b , #(
 # set -g @catppuccin_date_time_text "%H:%M"
 EOF
 fi
-
-cat <<EOF > ~/.local/bin/docker
-#!/bin/sh
-set -eu
-: "${LIMA_INSTANCE:=docker}"
-
-export LIMA_INSTANCE
-exec lima docker "$@"
-EOF
-chmod +x ~/.local/bin/docker
