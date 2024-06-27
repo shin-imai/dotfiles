@@ -6,7 +6,11 @@ git config --global difftool.vscode.cmd "code --wait --diff \$LOCAL \$REMOTE"
 git config --global difftool.prompt false
 git config --global merge.tool vimdiff
 git config --global pull.rebase true
-git config --global pager.branch false
+git config --global core.pager "cat"
+git config --global pager.diff "less -FX"
+#git config --global pager.branch false
+#git config --global pager.stash false
+#git config --global pager.alias false
 git config --global fetch.prune true
 git config --global remote.origin.prune true
 git config --global core.editor nvim
