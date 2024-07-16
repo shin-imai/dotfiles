@@ -2,7 +2,6 @@
 
 # Setup custom zsh
 cat <<'EOF' > ~/.zshrc_custom
-alias vi=nvim
 alias lg=lazygit
 alias gf="git flow"
 alias ls=exa
