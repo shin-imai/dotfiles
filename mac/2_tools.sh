@@ -3,7 +3,7 @@
 # Install tools via brew
 # Not sure if fzf is needed. I might remove fzf from neovim, too.
 # Remove git-delta & diff-so-fancy
-brew instal kubectl tmux git-flow-avh bat exa go nodejs glow lazygit fzf fd ripgrep jq yq neovim colima helm helmfile terraform mdomke/git-semver/git-semver
+brew instal kubectl tmux git-flow-avh bat eza go nodejs glow lazygit fzf fd ripgrep jq yq neovim colima helm helmfile terraform mdomke/git-semver/git-semver
 
 # install stuff via cask
 brew install --cask iterm2 visual-studio-code slack
