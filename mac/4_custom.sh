@@ -2,12 +2,18 @@
 
 # Setup custom zsh
 cat <<'EOF' > ~/.zshrc_custom
+alias vi=lvim
 alias lg=lazygit
 alias gf="git flow"
 alias ls=exa
 bindkey "^R" history-incremental-search-backward
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin:$PATH"
 export EDITOR=nvim
+
+### Tmux aliases
+alias tvsp="tmux split-window -h -c \"#{pane_current_path}\""
+alias tsp="tmux split-window -v -c \"#{pane_current_path}\""
+alias tdp="tmux display-panes"
 EOF
 if ! grep -q .zshrc_custom ~/.zshrc ;then
   echo 'source ~/.zshrc_custom' >> ~/.zshrc
