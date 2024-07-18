@@ -15,4 +15,5 @@
 !run_ide.sh
 !install_*
 !mac
+!container/*
 !mac/*.sh
