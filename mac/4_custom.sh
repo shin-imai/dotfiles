@@ -6,7 +6,7 @@ alias vi=lvim
 alias lg=lazygit
 alias gf="git flow"
 bindkey "^R" history-incremental-search-backward
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
 export EDITOR=nvim
 
 # --- Tmux aliases ---
