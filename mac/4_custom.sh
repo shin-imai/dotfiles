@@ -146,5 +146,7 @@ tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b , #(
 # set -g @catppuccin_directory_text "#{b:pane_current_path}"
 # set -g @catppuccin_meetings_text "#($HOME/.config/tmux/scripts/cal.sh)"
 # set -g @catppuccin_date_time_text "%H:%M"
+# set -g @resurrect-capture-pane-contents 'on'
+# set -g @continuum-save-interval '15'
 EOF
 fi

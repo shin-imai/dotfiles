@@ -11,6 +11,7 @@
 # - https://www.lunarvim.org/
 # - https://nvchad.com/
 # - https://www.lazyvim.org/
+# - https://astronvim.com/
 
 # Install nvim language supprt and tools
 pip3 install pynvim

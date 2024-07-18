@@ -2,23 +2,13 @@
 
 git config --global user.name "Shin Imai"
 git config --global user.email "binaryninja0101@yahoo.com"
-git config --global difftool.vscode.cmd "code --wait --diff \$LOCAL \$REMOTE"
 git config --global difftool.prompt false
-git config --global merge.tool vimdiff
 git config --global pull.rebase true
-git config --global core.pager "cat"
-git config --global pager.diff "less -FX"
-git config --global pager.blame "less -FX"
-git config --global pager.log "less -FX"
-#git config --global pager.branch false
-#git config --global pager.stash false
-#git config --global pager.alias false
+git config --global core.editor nvim
+git config --global core.pager bat
 git config --global fetch.prune true
 git config --global remote.origin.prune true
-git config --global core.editor nvim
 git config --global alias.alias "config --get-regexp '^alias\.'"
-git config --global alias.d "difftool -t vimdiff"
-git config --global alias.code "difftool -t vscode"
 git config --global alias.conflicts "diff --name-only --diff-filter=U --relative"
 git config --global alias.ls "log --decorate --name-status"
 git config --global alias.lsl "log --decorate --patch --stat"

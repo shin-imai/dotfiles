@@ -2,8 +2,8 @@
 
 # Install tools via brew
 # Not sure if fzf is needed. I might remove fzf from neovim, too.
-# Remove git-delta & diff-so-fancy
-brew instal kubectl tmux git-flow-avh bat eza go nodejs glow lazygit fzf fd ripgrep jq yq neovim colima helm helmfile terraform mdomke/git-semver/git-semver
+# Remove diff-so-fancy
+brew instal kubectl tmux git-flow-avh bat eza git-delta go nodejs glow lazygit fzf fd ripgrep jq yq neovim colima helm helmfile terraform
 
 # install stuff via cask
 brew install --cask iterm2 visual-studio-code slack
@@ -47,7 +47,7 @@ cd -
 LOCALBIN=~/.local/bin
 mkdir -p $LOCALBIN
 URL=$(curl -fLsq https://api.github.com/repos/arl/gitmux/releases/latest | 
-  awk '$1~/download_url/ && $2~/macOS_arm64/ {print $2}' | tr -d '"')
+    awk '$1~/download_url/ && $2~/macOS_arm64/ {print $2}' | tr -d '"')
 curl -Lsqf $URL | tar zx -C $LOCALBIN/ && chmod +x $LOCALBIN/gitmux || echo "Downloadin gitmux failed"
 
 ## kube-tmux
