@@ -5,6 +5,7 @@ cat <<'EOF' > ~/.zshrc_custom
 alias vi=lvim
 alias lg=lazygit
 alias gf="git flow"
+alias ls="eza -l --git"
 bindkey "^R" history-incremental-search-backward
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
 export EDITOR=nvim
@@ -27,7 +28,7 @@ purple="#B388FF"
 blue="#06BCE4"
 cyan="#2CF9ED"
 
-export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
+export FZF_DEFAULT_OPTS="--tmux center,60%,50% --color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
 
 # -- Use fd instead of fzf --
 
@@ -50,6 +51,7 @@ _fzf_compgen_dir() {
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
+export FZF_CTRL_R_OPTS="--reverse"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 # Advanced customization of fzf options via _fzf_comprun function
@@ -60,6 +62,7 @@ _fzf_comprun() {
   shift
 
   case "$command" in
+    vi)           fzf --preview "$show_file_or_dir_preview" "$@" ;;
     cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
     export|unset) fzf --preview "eval 'echo \${}'"         "$@" ;;
     ssh)          fzf --preview 'dig {}'                   "$@" ;;

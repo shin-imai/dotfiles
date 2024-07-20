@@ -50,6 +50,9 @@ URL=$(curl -fLsq https://api.github.com/repos/arl/gitmux/releases/latest |
     awk '$1~/download_url/ && $2~/macOS_arm64/ {print $2}' | tr -d '"')
 curl -Lsqf $URL | tar zx -C $LOCALBIN/ && chmod +x $LOCALBIN/gitmux || echo "Downloadin gitmux failed"
 
+## kube-tmux
+git clone https://github.com/imaimaibah/kube-tmux.git ~/.tmux/kube-tmux
+
 # Set up tmuxbar
 if ! grep -q '^#   ___  _ __(_) __ _(_)_ __   __ _| |' ~/.tmux.conf.local;then
 cat <<'EOF' >> ~/.tmux.conf.local
@@ -92,9 +95,8 @@ bind-key -n F6 select-window -t :6
 bind C-n set-window-option synchronize-panes
 
 # Gitmux
-tmux_conf_theme_status_left=' 🍺 #S '
-#tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #{username}#{root} | #{hostname} | #(/bin/bash $HOME/.tmux-kube/kube.tmux 250 red cyan) | #(gitmux "#{pane_current_path}")'
-#tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b | #{username} | #{root} | #($HOME/.local/bin/gitmux "#{pane_current_path}")'
+#tmux_conf_theme_status_left_bg='#8a8a8a,#ff00af,#00afff'  # yellow, pink, white blue
+tmux_conf_theme_status_left=' 💩 #S '
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b , #(/bin/bash $HOME/.tmux/kube-tmux/kube.tmux 250 red cyan) , #($HOME/.local/bin/gitmux "#{pane_current_path}")'
 
 # Catppuccin Theme
@@ -121,6 +123,3 @@ tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R , %d %b , #(
 # set -g @continuum-save-interval '15'
 EOF
 fi
-
-## kube-tmux
-git clone https://github.com/imaimaibah/kube-tmux.git ~/.tmux/kube-tmux
