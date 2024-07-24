@@ -1,27 +1,8 @@
 #!/bin/zsh
 
-# Install tools via brew
-# Not sure if fzf is needed. I might remove fzf from neovim, too.
-# Remove diff-so-fancy
-brew instal kubectl tmux git-flow-avh bat eza git-delta go nodejs glow lazygit fzf fd ripgrep jq yq neovim colima helm helmfile terraform
-
-# install stuff via cask
-brew install --cask iterm2 visual-studio-code slack
-
 # Install helm plugins
 helm plugin install https://github.com/databus23/helm-diff
 helm plugin install https://github.com/jkroepke/helm-secrets
-
-# This is usuful tool to obtain values from tfstate. https://github.com/fujiwara/tfstate-lookup
-# brew install fujiwara/tap/tfstate-lookup
-
-# File Encryption tool https://github.com/FiloSottile/age/
-# brew install age
-
-# Secret operations. https://github.com/getsops/sops
-
-# vals is a tool to get values from remote storage/secret services. https://github.com/helmfile/vals
-
 
 # Install Krew and plugins
 (
@@ -55,7 +36,7 @@ git clone https://github.com/imaimaibah/kube-tmux.git ~/.tmux/kube-tmux
 
 # Set up tmuxbar
 if ! grep -q '^#   ___  _ __(_) __ _(_)_ __   __ _| |' ~/.tmux.conf.local;then
-cat <<'EOF' >> ~/.tmux.conf.local
+cat <<'EOF' > ~/.tmux.conf.local.custom
 #             _       _             _
 #   ___  _ __(_) __ _(_)_ __   __ _| |
 #  / _ \| '__| |/ _` | | '_ \ / _` | |
@@ -80,7 +61,7 @@ tmux_conf_theme_window_status_current_format="#I #W#{?window_zoomed_flag,🔍,}"
 unbind C-b
 unbind C-c
 set -g prefix C-t
-bind C-t send-prex
+bind C-t send-prefix
 
 # Window Switch
 bind-key -n F1 select-window -t :1

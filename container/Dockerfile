@@ -5,7 +5,7 @@ ENV LANG=en_GB.UTF-8
 ENV TERM=xterm-256color
 ENV LV_BRANCH=release-1.4/neovim-0.9
 
-RUN apk add zsh zsh-vcs tzdata yarn git lazygit python3 go fzf fd jq yq bat eza kubectl helm cargo neovim ripgrep alpine-sdk curl --update && \
+RUN apk add zsh zsh-vcs tzdata yarn git lazygit python3 py-pip pipx go fzf fd jq yq bat eza kubectl helm cargo neovim ripgrep alpine-sdk curl --update && \
       addgroup -S lunaruser && adduser -S lunaruser -G lunaruser --shell /bin/zsh && \
       su -c "bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/release-1.4/neovim-0.9/utils/installer/install.sh) --no-install-dependencies" lunaruser
 
@@ -27,6 +27,8 @@ RUN rm -f /home/lunaruser/.config/lvim/* && git clone https://github.com/shin-im
       go install github.com/charmbracelet/glow@latest && \
       helm plugin install https://github.com/databus23/helm-diff && \
       helm plugin install https://github.com/jkroepke/helm-secrets
+
+RUN pipx install pre-commit
 
 ENTRYPOINT [ "/bin/zsh" ]
 WORKDIR /home/lunaruser/workspace
