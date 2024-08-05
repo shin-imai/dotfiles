@@ -15,9 +15,6 @@
 !run_ide.sh
 !install_*
 !container
-!container/lunarvim
-!container/lunarvim/*
-!container/neovim
-!container/neovim/*
+!container/**
 !mac
 !mac/*.sh
