@@ -18,3 +18,5 @@
 !container/*
 !mac
 !mac/*.sh
+!container
+!container/*
